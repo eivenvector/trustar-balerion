@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/trustar-inference.iml" filepath="$PROJECT_DIR$/trustar-inference.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trustar-owl.iml" filepath="$PROJECT_DIR$/trustar-owl.iml" />
     </modules>
   </component>
 </project>

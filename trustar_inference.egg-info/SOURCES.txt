@@ -1,9 +1,0 @@
-setup.py
-src/TrustarConnections.py
-src/TrustarQueries.py
-src/TrustarServices.py
-src/__init__.py
-trustar_inference.egg-info/PKG-INFO
-trustar_inference.egg-info/SOURCES.txt
-trustar_inference.egg-info/dependency_links.txt
-trustar_inference.egg-info/top_level.txt
