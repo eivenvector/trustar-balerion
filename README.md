@@ -1,9 +1,9 @@
-# Python SDK for the TruSTAR Owl 
+# Python SDK for the TruSTAR Balerion 
   
 ## Installation
 
 ### Manual
-1. Get the latest SDK by downloading as a [ZIP](https://github.com/trustar/trustar-owl/archive/master.zip) and extract locally.  You can also clone the repository directly from [GitHub](https://github.com/trustar/trustar-owl)
+1. Get the latest SDK by downloading as a [ZIP](https://github.com/trustar/trustar-balerion/archive/master.zip) and extract locally.  You can also clone the repository directly from [GitHub](https://github.com/trustar/trustar-balerion)
 
 2. Install requirements
 
@@ -24,7 +24,7 @@
 3. Install SDK
 
   ```shell   
-    $ cd trustar-owl
+    $ cd trustar-balerion
     $ python setup.py install --force
    ```
 
