@@ -1,6 +1,4 @@
-# Python SDK for the TruSTAR API 
-
-
+# Python SDK for the TruSTAR INFERENCE 
   
 ## Installation
 
@@ -29,11 +27,6 @@
     $ cd trustar-inference
     $ python setup.py install --force
    ```
- 
-## Uninstallation
-```shell
-$ pip uninstall trustar-inference
-```
 
 ## Running examples and tests
 - copy `application_properties.ini` in the `src` directory to the `scripts` directory
@@ -45,6 +38,3 @@ local Neo4j instance
     $ cd scripts
     $ python bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744
 ```
-## API Documentation
-
-See https://github.com/trustar/public/wiki/TruSTAR-INFERENCE for full documentation
