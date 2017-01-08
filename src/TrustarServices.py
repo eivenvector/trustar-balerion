@@ -16,7 +16,7 @@ MAPPING = {"md5": "MD5",
            "rat_name": "MALWARE",
            "imphash": "IMPHASH_MD5",
            "section_.BSS": "BSS_MD5",
-           "section_.DATA": "DATA_MD5",
+           "section_DATA": "DATA_MD5",
            "section_.IDATA": "IDATA_MD5",
            "section_.ITEXT": "ITEXT_MD5",
            "section_.RDATA": "RDATA_MD5",
@@ -24,6 +24,7 @@ MAPPING = {"md5": "MD5",
            "section_.RSRC": "RSRC_MD5",
            "section_.TEXT": "TEXT_MD5",
            "section_.TLS": "TLS_MD5",
+           "section_CODE": "CODE_MD5",
            "Mutex": "MUTEX"}
 
 queries_repository = QueriesRepository()
