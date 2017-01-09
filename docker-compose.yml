@@ -1,0 +1,18 @@
+# Neo4J Data volume
+neo4j-data:
+  image: busybox
+  volumes:
+    - /data
+#Neo4J database engine
+neo4j-engine:
+  image: neo4j:2.3.5
+  volumes_from:
+    - neo4j-data
+  ports:
+    - "7474:7474"
+    - "7473:7473"
+  expose:
+    - "7474"
+    - "7473"
+  environment:
+    - NEO4J_AUTH=neo4j/qwerty

@@ -14,7 +14,7 @@ def welcome():
 
 @app.route("/query")
 def query():
-    return query_barncat('1.2.3.4')
+    return query_barncat('f34d5f2d4577ed6d9ceec516c1f5a744')
 
 
 def query_barncat(indicator):
