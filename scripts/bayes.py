@@ -16,7 +16,7 @@ def main():
     x = args.x
 
     metrics = Metrics()
-    malwares = metrics.get_class_values('MALWARE')
+    malwares = metrics.get_class_values('CAMPAIGN')
 
     n = metrics.get_records_number()
     print 'Total number of records is {}.\n'.format(n)
@@ -24,7 +24,7 @@ def main():
     print 'Computing probabilities of malwares {} for indicator {}.\n'.format(malwares, x)
     print '#################################'
     print 'Malware Frequencies:\n'
-    n_y = metrics.get_class_distribution('MALWARE')
+    n_y = metrics.get_class_distribution('CAMPAIGN')
     print json.dumps(n_y, indent=2)
     print '#################################'
     n_x = metrics.get_indicator_frequency(x)

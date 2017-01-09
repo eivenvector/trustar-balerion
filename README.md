@@ -11,7 +11,7 @@
 * py2neo python module
 
   ```shell
-  $ pip install py2neo
+  $ pip install py2neo==2.0.8
   ``` 
   
  Python 3:

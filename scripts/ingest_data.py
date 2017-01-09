@@ -1,7 +1,7 @@
 from src.TrustarServices import Store
 import os
 
-SOURCE_REPORT_DIR = "./sample_data"
+SOURCE_REPORT_DIR = "/Users/nkseib/Downloads/barncat"
 
 
 def main():
