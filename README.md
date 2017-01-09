@@ -21,6 +21,20 @@
   $ pip3 install py2neo
   ``` 
   
+ Python 2.7+:
+* pandas 
+
+  ```shell
+  $ pip install pandas
+  ``` 
+  
+ Python 3:
+* pandas
+
+  ```shell
+  $ pip3 install pandas
+  ``` 
+  
 3. Install SDK
 
   ```shell   
