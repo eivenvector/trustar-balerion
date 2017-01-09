@@ -1,0 +1,11 @@
+uuid,event_id,category,type,value,comment,to_ids,date
+579b5e4e-087c-47fd-b739-c4f0ac1f3af3,99692,External analysis,comment,"2016-07-27 12:31:16","Date Observed",0,20160729
+579b5e4e-1118-422b-97c8-c4f0ac1f3af3,99692,External analysis,comment,"f34d5f2d4577ed6d9ceec516c1f5a744","Imphash",0,20160729
+579b5e4e-1494-4f50-8737-c4f0ac1f3af3,99692,External analysis,sha256,"dd626052c323812ff828ff81694cacde6b62d5cf293c1821ee9ff0f46b23a5df","",0,20160729
+579b5e4e-1740-4d93-8fc1-c4f0ac1f3af3,99692,External analysis,comment,"{""InstallFlag"": ""False"", ""RegistryValue"": ""110a2cfa42c2346680d82e2f0d481a0e"", ""Version"": ""0.7d"", ""InstallDir"": ""TEMP"", ""NetworkSeparator"": ""|'|'|"", ""Date"": ""2016-07-27 12:31:16"", ""sha256"": ""dd626052c323812ff828ff81694cacde6b62d5cf293c1821ee9ff0f46b23a5df"", ""rat_name"": ""njRat"", ""imphash"": ""f34d5f2d4577ed6d9ceec516c1f5a744"", ""sha1"": ""e7d62ac2f4e229ac2c23559747c2df16187ed986"", ""md5"": ""4f0237ee0ec122758f1753ca9749a639"", ""Origin"": ""vt"", ""Domain"": ""malikou32.myftp.biz"", ""InstallName"": ""dwm.exe"", ""magic"": ""PE32 executable for MS Windows (GUI) Intel 80386 32-bit Mono/.Net assembly"", ""Campaign"": ""haked"", ""section_.TEXT"": ""f09c879ed13271b08b9f1afd7707eb93"", ""section_.RSRC"": ""0243c9a7f8755f2c2b18037cdad6cc91"", ""compile_date"": ""2016-07-27 12:29:28"", ""Port"": ""5552"", ""section_.RELOC"": ""bb6b8b1f25ff35bc899d87eb8954f0a6""}","JSON config",0,20160729
+579b5e4e-7450-423d-8c99-c4f0ac1f3af3,99692,External analysis,comment,"njRat","Rat Name",0,20160729
+579b5e4e-9840-4910-baed-c4f0ac1f3af3,99692,External analysis,sha1,"e7d62ac2f4e229ac2c23559747c2df16187ed986","",0,20160729
+579b5e4e-9bf8-4f5e-95aa-c4f0ac1f3af3,99692,External analysis,comment,"haked","Campaign ID",0,20160729
+579b5e4e-ad10-4194-9792-c4f0ac1f3af3,99692,External analysis,comment,"vt","Source",0,20160729
+579b5e4e-c0e4-4a51-a7cd-c4f0ac1f3af3,99692,External analysis,domain,"malikou32.myftp.biz","Ports:5552",0,20160729
+579b5e4e-ee2c-4377-9905-c4f0ac1f3af3,99692,External analysis,md5,"4f0237ee0ec122758f1753ca9749a639","",0,20160729

@@ -1,0 +1,11 @@
+uuid,event_id,category,type,value,comment,to_ids,date
+579b5e49-399c-47b0-9aa1-c69bac1f3af3,99690,External analysis,sha256,"93553bdfb232e6dc64e5943d1d6bd8b631a6057a7e608b60638c5707c93fc532","",0,20160729
+579b5e49-42a8-4656-a6a2-c69bac1f3af3,99690,External analysis,comment,"halim","Campaign ID",0,20160729
+579b5e49-5d80-45a5-ae27-c69bac1f3af3,99690,External analysis,comment,"f34d5f2d4577ed6d9ceec516c1f5a744","Imphash",0,20160729
+579b5e49-66f0-4960-878e-c69bac1f3af3,99690,External analysis,domain,"malikou32.myftp.biz","Ports:5552",0,20160729
+579b5e49-739c-4d2d-adb9-c69bac1f3af3,99690,External analysis,comment,"2016-07-27 12:54:09","Date Observed",0,20160729
+579b5e49-a5a0-48f5-9e31-c69bac1f3af3,99690,External analysis,comment,"{""InstallFlag"": ""False"", ""RegistryValue"": ""2931eba5eac5cb34ce1fd877d3ce17a4"", ""Version"": ""0.7d"", ""InstallDir"": ""TEMP"", ""NetworkSeparator"": ""|'|'|"", ""Date"": ""2016-07-27 12:54:09"", ""sha256"": ""93553bdfb232e6dc64e5943d1d6bd8b631a6057a7e608b60638c5707c93fc532"", ""rat_name"": ""njRat"", ""imphash"": ""f34d5f2d4577ed6d9ceec516c1f5a744"", ""sha1"": ""8f4f4a420621e96c69441d007f422e8c8eb7546a"", ""md5"": ""d7bb0de1793b5afe0c52567b5ac7a2be"", ""Origin"": ""vt"", ""Domain"": ""malikou32.myftp.biz"", ""InstallName"": ""dwm.exe"", ""magic"": ""PE32 executable for MS Windows (GUI) Intel 80386 32-bit Mono/.Net assembly"", ""Campaign"": ""halim"", ""section_.TEXT"": ""63218faddb708a23e3f765ec5434e608"", ""section_.RSRC"": ""0243c9a7f8755f2c2b18037cdad6cc91"", ""compile_date"": ""2016-07-27 12:53:14"", ""Port"": ""5552"", ""section_.RELOC"": ""bb6b8b1f25ff35bc899d87eb8954f0a6""}","JSON config",0,20160729
+579b5e49-a914-41f1-8b04-c69bac1f3af3,99690,External analysis,sha1,"8f4f4a420621e96c69441d007f422e8c8eb7546a","",0,20160729
+579b5e49-cc64-4b7b-bd9a-c69bac1f3af3,99690,External analysis,comment,"vt","Source",0,20160729
+579b5e4a-074c-40c1-9c2d-c69bac1f3af3,99690,External analysis,md5,"d7bb0de1793b5afe0c52567b5ac7a2be","",0,20160729
+579b5e4a-e578-44f5-aa3d-c69bac1f3af3,99690,External analysis,comment,"njRat","Rat Name",0,20160729

@@ -1,0 +1,11 @@
+uuid,event_id,category,type,value,comment,to_ids,date
+579b5e53-23a4-4450-8418-c69bac1f3af3,99694,External analysis,comment,"2016-07-27 12:06:54","Date Observed",0,20160729
+579b5e53-554c-46b0-9ad5-c69bac1f3af3,99694,External analysis,comment,"vt","Source",0,20160729
+579b5e53-5d28-49ca-bac4-c69bac1f3af3,99694,External analysis,sha256,"71eda5b5f56544022026fcab4b374992fc2d21e3327b98e9fb7ca8f3d7b6a02a","",0,20160729
+579b5e53-8a64-47c2-b55f-c69bac1f3af3,99694,External analysis,comment,"f34d5f2d4577ed6d9ceec516c1f5a744","Imphash",0,20160729
+579b5e53-9494-4381-96a3-c69bac1f3af3,99694,External analysis,comment,"{""InstallFlag"": ""False"", ""RegistryValue"": ""5cd8f17f4086744065eb0992a09e05a2"", ""Version"": ""0.6.4"", ""InstallDir"": ""TEMP"", ""NetworkSeparator"": ""|'|'|"", ""Date"": ""2016-07-27 12:06:54"", ""sha256"": ""71eda5b5f56544022026fcab4b374992fc2d21e3327b98e9fb7ca8f3d7b6a02a"", ""rat_name"": ""njRat"", ""imphash"": ""f34d5f2d4577ed6d9ceec516c1f5a744"", ""sha1"": ""c4b96ae2efc6d395bdf64ee653804a3da6ba00d8"", ""md5"": ""6bbb789ce27d65e2ffa31ca15656db92"", ""Origin"": ""vt"", ""Domain"": ""njrattte.ddns.net"", ""InstallName"": ""Trojan.exe"", ""magic"": ""PE32 executable for MS Windows (GUI) Intel 80386 32-bit Mono/.Net assembly"", ""Campaign"": ""HacKed"", ""section_.TEXT"": ""cca50b8f73be689e85a01fb9ac604d9f"", ""section_.RSRC"": ""5b346ed223699f15252c1fdad182859f"", ""compile_date"": ""2016-07-27 11:06:23"", ""Port"": ""5552"", ""section_.RELOC"": ""ab23d7647284046104829f591447c788""}","JSON config",0,20160729
+579b5e53-ad6c-4d92-b7b1-c69bac1f3af3,99694,External analysis,sha1,"c4b96ae2efc6d395bdf64ee653804a3da6ba00d8","",0,20160729
+579b5e53-b584-43c7-be70-c69bac1f3af3,99694,External analysis,comment,"HacKed","Campaign ID",0,20160729
+579b5e53-baa8-430d-bace-c69bac1f3af3,99694,External analysis,domain,"njrattte.ddns.net","Ports:5552",0,20160729
+579b5e54-9fa0-4e42-b38a-c69bac1f3af3,99694,External analysis,comment,"njRat","Rat Name",0,20160729
+579b5e54-af28-492f-b3a6-c69bac1f3af3,99694,External analysis,md5,"6bbb789ce27d65e2ffa31ca15656db92","",0,20160729
