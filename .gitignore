@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+# IntelliJ project files
+.idea
+*.iml
+flasktest.py
+*.py[cod]
+
+build/
+/dist/
+
+/trustar_owl.egg-info/
+trustar_owl.egg-info/
+/.idea/
