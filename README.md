@@ -28,6 +28,8 @@
     $ python setup.py install --force
    ```
 
+4. You can download Neo4j from [Neo4j](https://neo4j.com/download/other-releases/) and install it. This code was tested on Neo4j V 2.3.8.
+
 ## Running examples and tests
 - copy `application_properties.ini` in the `balerion` directory to the `scripts` directory
 - To use a different Neo4j DataBase edit the file `application_properties.ini`. Currently it is setup to connect to a 
