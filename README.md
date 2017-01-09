@@ -8,14 +8,14 @@
 2. Install requirements
 
  Python 2.7+:
-* py2neo python module
+* py2neo V 2.0.8 python module
 
   ```shell
   $ pip install py2neo==2.0.8
   ``` 
   
  Python 3:
-* py2neo python module
+* py2neo V2.0.8 python module
 
   ```shell
   $ pip3 install py2neo
