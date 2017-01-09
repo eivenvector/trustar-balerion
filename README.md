@@ -29,7 +29,7 @@
    ```
 
 ## Running examples and tests
-- copy `application_properties.ini` in the `owl` directory to the `scripts` directory
+- copy `application_properties.ini` in the `balerion` directory to the `scripts` directory
 - To use a different Neo4j DataBase edit the file `application_properties.ini`. Currently it is setup to connect to a 
 local Neo4j instance
 - Inside the `scripts` directory you can find the script that you can run to compute the probabilities by giving an indicator as an input

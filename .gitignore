@@ -8,6 +8,5 @@ flasktest.py
 build/
 /dist/
 
-/trustar_owl.egg-info/
-trustar_owl.egg-info/
+/trustar_balerion.egg-info/
 /.idea/

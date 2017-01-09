@@ -1,4 +1,4 @@
-from owl.TrustarServices import Metrics
+from balerion.TrustarServices import Metrics
 import argparse
 import json
 from flask import Flask
@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     print __name__
-    return "Welcome to TruSTAR Owl!"
+    return "Welcome to TruSTAR Balerion!"
 
 
 @app.route("/query")
