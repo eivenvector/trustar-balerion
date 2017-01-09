@@ -1,7 +1,7 @@
 from balerion.TrustarServices import Store
 import os
 
-SOURCE_REPORT_DIR = "/Users/nkseib/Downloads/barncat"
+SOURCE_REPORT_DIR = "./sample_data"
 
 
 def main():
