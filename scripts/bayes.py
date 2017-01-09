@@ -50,7 +50,7 @@ def query_barncat(indicator):
 
     p_n_i = metrics.get_non_uniform_odds(n_x_y)
     print json.dumps(p_n_i, indent=2)
-
+    return p_n_i
 
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
