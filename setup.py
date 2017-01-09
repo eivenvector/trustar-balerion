@@ -8,5 +8,5 @@ setup(name='trustar-owl',
       author_email='nkseib@trustar.co',
       license='Apache',
       packages=find_packages(),
-      use_2to3=True, requires=['py2neo', 'flask']
+      use_2to3=True, requires=['py2neo', 'pandas']
       )
