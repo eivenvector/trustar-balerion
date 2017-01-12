@@ -52,5 +52,5 @@ local Neo4j instance
 
 ```shell
     $ cd scripts
-    $ python bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744
+    $ python balerion_bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744
 ```
