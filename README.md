@@ -48,9 +48,10 @@
 - copy `application_properties.ini` in the `balerion` directory to the `scripts` directory
 - To use a different Neo4j DataBase edit the file `application_properties.ini`. Currently it is setup to connect to a 
 local Neo4j instance
-- Inside the `scripts` directory you can find the script that you can run to compute the probabilities by giving an indicator as an input
+- Inside the `scripts` directory you can find the script that you can run to compute the probabilities by giving an indicator and a class type as inputs. 
+The class type can be either `malware`or `campaign`
 
 ```shell
     $ cd scripts
-    $ python balerion_bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744
+    $ python balerion_bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744 -c malware
 ```
