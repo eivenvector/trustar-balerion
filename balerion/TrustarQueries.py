@@ -11,8 +11,11 @@ class QueriesRepository(object):
                        "RETURN COUNT(DISTINCT n) as NUMBER "
         return self.cypher.execute(query_string)
 
-    def query_class_values(self, class_type):
-        query_string = "MATCH (n:RECORD {index: 'barncat'})-[:CONTAINS]-(j:INDICATOR {type: '" + class_type + "'}) " + \
+    def query_class_values(self, input_value, class_type):
+        query_string = "MATCH (n:RECORD {index: 'barncat'})-[:CONTAINS]-" + \
+                       "      (i:INDICATOR {value: '" + input_value + "'})" + \
+                       "MATCH (n:RECORD {index: 'barncat'})-[:CONTAINS]-" + \
+                       "      (j:INDICATOR {type: '" + class_type + "'}) " + \
                        "RETURN DISTINCT j.value AS VALUE "
         return self.cypher.execute(query_string)
 

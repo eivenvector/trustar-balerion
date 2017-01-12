@@ -1,4 +1,9 @@
-from balerion.TrustarServices import Store
+#!/usr/bin/env python
+
+"""
+Script to persist barncat data to a Neo4j database
+"""
+from balerion.TrustarServices import Persist
 from balerion.TrustarConnections import Neo4jConnection
 import os
 
@@ -8,7 +13,7 @@ neo4j_connection = Neo4jConnection(config_file='application_properties.ini')
 
 def main():
     all_df = []
-    store = Store(connection=neo4j_connection)
+    store = Persist(connection=neo4j_connection)
 
     # process all files in directory
     print("Processing and storing each source file in %s" % SOURCE_REPORT_DIR)
