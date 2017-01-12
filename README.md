@@ -35,20 +35,6 @@
   $ pip3 install pandas
   ``` 
   
- Python 2.7+:
-* flask 
-
-  ```shell
-  $ pip install flask
-  ``` 
-  
- Python 3:
-* flask
-
-  ```shell
-  $ pip3 install flask
-  ``` 
-  
 3. Install SDK
 
   ```shell   

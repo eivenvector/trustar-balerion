@@ -1,14 +1,9 @@
-from TrustarConnections import Neo4jConnection
-
-neo4j_connection = Neo4jConnection()
-
-
 class QueriesRepository(object):
     """
     This class contains all the queries
     """
 
-    def __init__(self):
+    def __init__(self, neo4j_connection):
         self.cypher = neo4j_connection.cypher
 
     def query_records_number(self):

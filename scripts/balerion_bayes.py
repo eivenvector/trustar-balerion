@@ -1,25 +1,14 @@
 from balerion.TrustarServices import Metrics
+from balerion.TrustarConnections import Neo4jConnection
 import argparse
 import json
-from flask import Flask
 
-app = Flask(__name__)
-
-
-@app.route("/")
-def welcome():
-    print __name__
-    return "Welcome to TruSTAR Balerion!"
+neo4j_connection = Neo4jConnection(config_file='application_properties.ini')
 
 
-@app.route("/query")
-def query():
-    return query_barncat('f34d5f2d4577ed6d9ceec516c1f5a744')
-
-
-def query_barncat(indicator):
-    metrics = Metrics()
-    malwares = metrics.get_class_values('CAMPAIGN')
+def query_barncat(indicator, class_type):
+    metrics = Metrics(connection=neo4j_connection)
+    malwares = metrics.get_class_values(class_type.upper())
 
     x = indicator
     n = metrics.get_records_number()
@@ -29,7 +18,7 @@ def query_barncat(indicator):
     print 'Computing probabilities of malwares {} for indicator {}.\n'.format(malwares, x)
     print '#################################'
     print 'Malware Frequencies:\n'
-    n_y = metrics.get_class_distribution('CAMPAIGN')
+    n_y = metrics.get_class_distribution(class_type.upper())
     print json.dumps(n_y, indent=2)
 
     print '#################################'
@@ -52,21 +41,23 @@ def query_barncat(indicator):
     print json.dumps(p_n_i, indent=2)
     return "Check your terminal!"
 
+
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=('Query barncat data using an indicator and returns probabilities of '
                                                   'different RAT types\n'
                                                   'Example:\n\n'
-                                                  'python bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744'))
+                                                  'python balerion_bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744'))
     parser.add_argument('-i', '--indicator', required=True, dest='indicator', help='input indicator')
+    parser.add_argument('-c', '--class', required=True, dest='class_type', help='class indicator')
 
     # Indicator
     args = parser.parse_args()
     indicator = args.indicator
+    class_type = args.class_type
 
-    query_barncat(indicator)
+    query_barncat(indicator, class_type)
 
 
 if __name__ == '__main__':
-    app.run()
-    # main()
+    main()

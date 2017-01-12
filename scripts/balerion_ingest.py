@@ -1,12 +1,14 @@
 from balerion.TrustarServices import Store
+from balerion.TrustarConnections import Neo4jConnection
 import os
 
 SOURCE_REPORT_DIR = "./sample_data"
+neo4j_connection = Neo4jConnection(config_file='application_properties.ini')
 
 
 def main():
     all_df = []
-    store = Store()
+    store = Store(connection=neo4j_connection)
 
     # process all files in directory
     print("Processing and storing each source file in %s" % SOURCE_REPORT_DIR)

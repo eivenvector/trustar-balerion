@@ -27,8 +27,6 @@ MAPPING = {"md5": "MD5",
            "section_CODE": "CODE_MD5",
            "Mutex": "MUTEX"}
 
-queries_repository = QueriesRepository()
-
 
 class Metrics(object):
     """
@@ -41,36 +39,35 @@ class Metrics(object):
         for key, value in kwargs.iteritems():
             if key == 'type':
                 self.type = value
+            elif key == 'connection':
+                self.queries_repository = QueriesRepository(value)
             elif key == 'time_service':
                 self.time_service = value
 
-    @staticmethod
-    def get_records_number():
+    def get_records_number(self):
         """
 
         :return:
         """
 
-        result = queries_repository.query_records_number()
+        result = self.queries_repository.query_records_number()
         return result[0][COUNT]
 
-    @staticmethod
-    def get_class_values(class_type):
+    def get_class_values(self, class_type):
         """
         Method to determine the frequency of occurence of a specific class type
 
         :param class_type:
         """
 
-        result_query = queries_repository.query_class_values(class_type)
+        result_query = self.queries_repository.query_class_values(class_type)
 
         result = []
         for row in result_query:
             result.append(row[VALUE])
         return result
 
-    @staticmethod
-    def get_class_distribution(class_type):
+    def get_class_distribution(self, class_type):
         """
 
         :param class_type:
@@ -78,24 +75,22 @@ class Metrics(object):
         """
 
         result = {}
-        result_query = queries_repository.query_class_frequencies(class_type)
+        result_query = self.queries_repository.query_class_frequencies(class_type)
         for row in result_query:
                 result[row[VALUE]] = row[COUNT]
         return result
 
-    @staticmethod
-    def get_indicator_frequency(input_value):
+    def get_indicator_frequency(self, input_value):
         """
 
         :param input_value:
         :return:
         """
 
-        result = queries_repository.query_indicator_frequency(input_value)
+        result = self.queries_repository.query_indicator_frequency(input_value)
         return result[0][COUNT]
 
-    @staticmethod
-    def get_indicator_class_frequency(input_value, class_values):
+    def get_indicator_class_frequency(self, input_value, class_values):
         """
 
         :param input_value:
@@ -104,7 +99,7 @@ class Metrics(object):
         """
         result = {}
         for class_value in class_values:
-            result_query = queries_repository.query_indicator_class_frequency(input_value, class_value)
+            result_query = self.queries_repository.query_indicator_class_frequency(input_value, class_value)
             if result_query[0][COUNT] != 0:
                 result[class_value] = result_query[0][COUNT]
         return result
@@ -152,6 +147,8 @@ class Store(object):
         for key, value in kwargs.iteritems():
             if key == 'type':
                 self.type = value
+            elif key == 'connection':
+                self.queries_repository = QueriesRepository(value)
             elif key == 'time_service':
                 self.time_service = value
 
@@ -160,8 +157,7 @@ class Store(object):
             df = pd.read_csv(source_file)
             return df
 
-    @staticmethod
-    def store_file(record):
+    def store_file(self, record):
         """
 
         :param record:
@@ -196,7 +192,7 @@ class Store(object):
                 if key in json_config:
                     indicator_value = json_config[key]
                     indicator_type = MAPPING[key]
-                    queries_repository.store_object(doc_id,
+                    self.queries_repository.store_object(doc_id,
                                                     title,
                                                     str(int(math.floor(float(timestamp)))),
                                                     indicator_type,
