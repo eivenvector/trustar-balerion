@@ -38,7 +38,7 @@
 
 ## Configuration
 1. copy `application_properties.ini` in the `balerion` directory to the `scripts` directory
-2. To use a different Neo4j DataBase edit the file `application_properties.ini`. Currently it is setup to connect to a local Neo4j instance
+2. To use a different Neo4j database edit the file `application_properties.ini` and point it to the new location. Currently it is setup to connect to a local Neo4j instance
 
 ## Running the code
 Inside the `scripts` directory you will find the script `balerion_bayes.py` that you can run to compute the probabilities. It takes an input indicator value and a classification indicator type as inputs. The classification indicator type can either be `malware`or `campaign`
