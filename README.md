@@ -49,3 +49,6 @@ Inside the `scripts` directory you will find the script `balerion_bayes.py` that
 ```
 ## Using your own dataset
 Inside the `scripts` directory you will find the script `balerion_ingest.py` . Use this to input your own data in the Neo4j db and persist it.
+
+## For slackers
+If you have any questions, you can also go to our project-balerion dedicated slack [channel](https://trustar-users.slack.com/archives/project-balerion).
