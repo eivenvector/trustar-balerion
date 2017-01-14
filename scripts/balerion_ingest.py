@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from balerion.TrustarServices import Store
 from balerion.TrustarConnections import Neo4jConnection
 import os
