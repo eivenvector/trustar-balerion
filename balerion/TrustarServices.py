@@ -7,6 +7,7 @@ import pandas as pd
 COUNT = "NUMBER"
 VALUE = "VALUE"
 
+# Mapping from barncat indicator labels to TruSTAR indicator labels
 MAPPING = {"md5": "MD5",
            "Campaign": "CAMPAIGN",
            "sha1": "SHA1",
@@ -28,10 +29,9 @@ MAPPING = {"md5": "MD5",
            "Mutex": "MUTEX"}
 
 
-class Metrics(object):
+class Classifier(object):
     """
-    This class allows us to query the Neo4j DB and determine the required metrics to
-    compute the empirical probabilities
+    This class contains the tools to classify into a classification indicator given an input indicator
     """
 
     def __init__(self, **kwargs):
@@ -41,26 +41,27 @@ class Metrics(object):
                 self.type = value
             elif key == 'connection':
                 self.queries_repository = QueriesRepository(value)
-            elif key == 'time_service':
-                self.time_service = value
 
     def get_records_number(self):
         """
-
-        :return:
+        Method returning the total number of records in the graph DB.
+        :return: integer
         """
 
         result = self.queries_repository.query_records_number()
         return result[0][COUNT]
 
-    def get_class_values(self, class_type):
+    def get_class_values(self, input_value, class_type):
         """
-        Method to determine the frequency of occurence of a specific class type
-
-        :param class_type:
+        Method to determine the list of classification indicator values associated with
+        a given input indicator value.
+        :param input_value: value of the input indicator
+        :param class_type: type of the classification indicator
+        :return: list of classification indicator values
         """
 
-        result_query = self.queries_repository.query_class_values(class_type)
+        result_query = self.queries_repository.query_class_values(input_value,
+                                                                  class_type)
 
         result = []
         for row in result_query:
@@ -69,9 +70,9 @@ class Metrics(object):
 
     def get_class_distribution(self, class_type):
         """
-
-        :param class_type:
-        :return:
+        Method to get the distribution of classification indicator values.
+        :param class_type: classification indicator type
+        :return: dict with a classification indicator value as key and an integer as value
         """
 
         result = {}
@@ -82,9 +83,9 @@ class Metrics(object):
 
     def get_indicator_frequency(self, input_value):
         """
-
-        :param input_value:
-        :return:
+        Method to get the frequency of occurrence of an input indicator value.
+        :param input_value: input indicator value
+        :return: integer
         """
 
         result = self.queries_repository.query_indicator_frequency(input_value)
@@ -92,10 +93,11 @@ class Metrics(object):
 
     def get_indicator_class_frequency(self, input_value, class_values):
         """
-
-        :param input_value:
-        :param class_values:
-        :return:
+        This method gets the frequency of co-occurrence of an input indicator value w.r.t. a list of classification
+        indicator values.
+        :param input_value: input indicator value
+        :param class_values: list of classification indicator values
+        :return: dict with a classification indicator value as key and an integer as value
         """
         result = {}
         for class_value in class_values:
@@ -105,11 +107,12 @@ class Metrics(object):
         return result
 
     @staticmethod
-    def get_non_uniform_odds(n_x_y):
+    def get_probabilities(n_x_y):
         """
-
-        :param n_x_y:
-        :return:
+        This method computes probabilities for the Bayes equation with a prior obtained from the real data.
+        The only required input is the frequency of co-occurrence of input indicator x with classification indicator y.
+        :param n_x_y: frequency of co-occurrence of x and y
+        :return: dict with a classification indicator value as key and a float as value (probabilities in %)
         """
 
         summation = sum(n_x_y.values())
@@ -121,9 +124,12 @@ class Metrics(object):
     @staticmethod
     def get_uniform_odds(n_x_y, n_y):
         """
-        :param n_x_y:
-        :param n_y:
-        :return:
+        This method computes probabilities for the Bayes equation that assumes that the prior probabilities of the
+        classification indicators are uniform. The required inputs are the frequency of co-occurrence of input indicator
+        x with classification indicator y, and the frequency of occurrence of classification indicator y.
+        :param n_x_y: frequency of co-occurrence of x and y
+        :param n_y: frequency of occurrence of y
+        :return: dict with a classification indicator value as key and a float as value (probabilities in %)
         """
 
         ratio = {}
@@ -133,13 +139,13 @@ class Metrics(object):
         result = {}
         summation = sum(ratio.values())
         for class_value in ratio:
-            result[class_value] = float(ratio[class_value])/float(summation)
+            result[class_value] = float(ratio[class_value])/float(summation)*100
         return result
 
 
-class Store(object):
+class Persist(object):
     """
-    This class is used to store a data set to a Neo4j database
+    This class is used to store data to a Neo4j database
     """
 
     def __init__(self, **kwargs):
@@ -149,8 +155,6 @@ class Store(object):
                 self.type = value
             elif key == 'connection':
                 self.queries_repository = QueriesRepository(value)
-            elif key == 'time_service':
-                self.time_service = value
 
     @staticmethod
     def process_file(source_file):
@@ -159,9 +163,8 @@ class Store(object):
 
     def store_file(self, record):
         """
-
-        :param record:
-        :return:
+        Method that takes a pandas data frame and stores it in the graph DB.
+        :param record: a pandas data frame
         """
 
         json_in_comment = record.comment == 'JSON config'
@@ -193,7 +196,7 @@ class Store(object):
                     indicator_value = json_config[key]
                     indicator_type = MAPPING[key]
                     self.queries_repository.store_object(doc_id,
-                                                    title,
-                                                    str(int(math.floor(float(timestamp)))),
-                                                    indicator_type,
-                                                    indicator_value)
+                                                         title,
+                                                         str(int(math.floor(float(timestamp)))),
+                                                         indicator_type,
+                                                         indicator_value)

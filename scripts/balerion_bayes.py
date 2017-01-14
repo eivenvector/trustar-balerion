@@ -1,4 +1,10 @@
-from balerion.TrustarServices import Metrics
+#!/usr/bin/env python
+
+"""
+Script that takes an input indicator value and a classification indicator type and computes the probabilities of
+the classification indicator values
+"""
+from balerion.TrustarServices import Classifier
 from balerion.TrustarConnections import Neo4jConnection
 import argparse
 import json
@@ -6,48 +12,38 @@ import json
 neo4j_connection = Neo4jConnection(config_file='application_properties.ini')
 
 
-def query_barncat(indicator, class_type):
-    metrics = Metrics(connection=neo4j_connection)
-    malwares = metrics.get_class_values(class_type.upper())
+def query_barncat(input_indicator, class_type):
+    classifier = Classifier(connection=neo4j_connection)
+    class_values = classifier.get_class_values(input_indicator, class_type.upper())
 
-    x = indicator
-    n = metrics.get_records_number()
+    x = input_indicator
 
-    print 'Total number of records is {}.\n'.format(n)
-    print '#################################'
-    print 'Computing probabilities of malwares {} for indicator {}.\n'.format(malwares, x)
-    print '#################################'
-    print 'Malware Frequencies:\n'
-    n_y = metrics.get_class_distribution(class_type.upper())
-    print json.dumps(n_y, indent=2)
+    print '#################################\n'
+    print 'Computing probabilities of ' + class_type + ' {} for indicator {}.\n'.format(class_values, x)
 
-    print '#################################'
-    n_x = metrics.get_indicator_frequency(x)
-    print 'Frequency of occurrence of indicator {}: {}.'.format(x, n_x)
-    print '#################################'
-    print 'Frequency of co-occurrence of malwares with indicator {}:\n'.format(x)
+    print '#################################\n'
+    n_x = classifier.get_indicator_frequency(x)
+    print 'Frequency of occurrence of indicator {}: {}.\n'.format(x, n_x)
 
-    n_x_y = metrics.get_indicator_class_frequency(x, malwares)
+    print '#################################\n'
+    print 'Frequency of co-occurrence of ' + class_type + ' {} with indicator {}:\n'.format(class_values, x)
+    n_x_y = classifier.get_indicator_class_frequency(x, class_values)
     print json.dumps(n_x_y, indent=2)
-    print '#################################'
-    print 'Compute odds of malwares for indicator {} for a uniform prior:\n'.format(x)
 
-    p_u_i = metrics.get_uniform_odds(n_x_y, n_y)
-    print json.dumps(p_u_i, indent=2)
-    print '#################################'
-    print 'Compute odds of malwares for indicator {} for a non-uniform prior:\n'.format(x)
-
-    p_n_i = metrics.get_non_uniform_odds(n_x_y)
+    print '#################################\n'
+    print 'Compute probability (%) of ' + class_type + ' {} given indicator {} for a non-uniform prior:\n'.format(
+            class_values, x)
+    p_n_i = classifier.get_probabilities(n_x_y)
     print json.dumps(p_n_i, indent=2)
-    return "Check your terminal!"
 
 
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
-                                     description=('Query barncat data using an indicator and returns probabilities of '
-                                                  'different RAT types\n'
+                                     description=('Query barncat data using an input indicator and returns '
+                                                  'probabilities of different RAT-families/Campaigns\n'
                                                   'Example:\n\n'
-                                                  'python balerion_bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744'))
+                                                  'python balerion_bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744 '
+                                                  '-c malware'))
     parser.add_argument('-i', '--indicator', required=True, dest='indicator', help='input indicator')
     parser.add_argument('-c', '--class', required=True, dest='class_type', help='class indicator')
 
