@@ -47,8 +47,22 @@ Inside the `scripts` directory you will find the script `balerion_bayes.py` that
     $ cd scripts
     $ python balerion_bayes.py -i f34d5f2d4577ed6d9ceec516c1f5a744 -c malware
 ```
+
 ## Using your own dataset
 Inside the `scripts` directory you will find the script `balerion_ingest.py` . Use this to input your own data in the Neo4j db and persist it.
+
+## Using a pre-populated Neo4j DB
+1. Download and install Neo4j 2.3.8. Do not Run Neo4j yet.
+2. In the folder trustar-balerion/scripts/data you will find graph.db.zip. Copy the zip file and place in Neo4j folder
+3. Unzip graph.db.zip 
+4. Run Neo4j 2.3.8 
+5. In the Database Location field, select the newly unzipped graph.db folder
+6. Click Start.
+7. If successful the message will get updated.
+8. Click on link to start the Neo4j browser. 
+9. Run the following Cyper query. The result should be 43002.
+	`MATCH (n:RECORD) RETURN COUNT(n)`
+
 
 ## For slackers
 If you have any questions, you can also go to our project-balerion dedicated slack [channel](https://trustar-users.slack.com/archives/project-balerion).
