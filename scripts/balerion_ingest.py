@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-=
+
 """
 Script to persist barncat data to a Neo4j database
 """
